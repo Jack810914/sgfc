@@ -339,7 +339,7 @@ int Correct_Date(char *value)
 {
 	int year = -1, month = -1, day = -1, day2 = -1;
 	int i, charmonth = FALSE;
-	long n;
+	int n;
 	char *s;
 	const char months[26][4] = { "Jan", "jan", "Feb", "feb", "Mar", "mar",
 								"Apr", "apr", "May", "may", "Jun", "jun",
@@ -371,7 +371,7 @@ int Correct_Date(char *value)
 	{
 		if(isdigit(*s))
 		{
-			n = strtol(s, &s, 10);
+			n = (int)strtol(s, &s, 10);
 
 			if(n > 31)
 				if(year < 0)	year = n;
@@ -576,7 +576,8 @@ int Parse_Date(char *value, U_SHORT dummy)
 int Check_GameInfo(struct Property *p, struct PropValue *v)
 {
 	char *val;
-	int res, size;
+	size_t size;
+	int res;
 	int (*parse)(char *, U_SHORT);
 
 	if(!Check_Text(p, v))		/* parse text (converts spaces) */
@@ -643,7 +644,7 @@ int PromptGameInfo(struct Property *p, struct PropValue *v,
 				   int (*Parse_Value)(char *, U_SHORT))
 {
 	char *newgi, *oldgi, inp[2001];
-	long size;
+	size_t size;
 	int ret;
 
 	if(!option_interactive)

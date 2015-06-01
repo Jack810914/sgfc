@@ -492,7 +492,7 @@ void f_Delete(struct ListHead *h, struct ListNode *n)
 *** Returns:	TRUE=strings not equal, FALSE= equal
 **************************************************************************/
 
-int strnccmp(char *a, char *b, int len)
+size_t strnccmp(char *a, char *b, size_t len)
 {
 	if(!len)
 		len = strlen(a) + 1;

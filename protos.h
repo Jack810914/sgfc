@@ -125,7 +125,7 @@ void f_AddTail(struct ListHead * , struct ListNode * );
 void f_Enqueue(struct ListHead * , struct ListNode * );
 void f_Delete(struct ListHead * , struct ListNode * );
 
-int strnccmp(char * , char * , int);
+size_t strnccmp(char * , char * , size_t);
 U_LONG Kill_Chars(char * , U_SHORT , char * );
 U_LONG Test_Chars(char * , U_SHORT , char * );
 
